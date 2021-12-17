@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
+.container-chat {
+    display: flex;
+    width: 500px;
+    height: 500px;
+    border: 3px solid crimson;
+}
