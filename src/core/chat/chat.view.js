@@ -29,7 +29,7 @@ export default class ChatView {
         return $(`<div class="container-chat">
         <div class="container-users">
             <ul class="list-chat">
-                <li>John</li>
+                <li></li>
             </ul>
         </div>
         <div class="container-messages">
