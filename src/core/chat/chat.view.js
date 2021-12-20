@@ -44,18 +44,18 @@ export default class ChatView {
 
 
     };
-    createUser(name) {
+    createUser() {
         console.log('createUser')
-        return $(`<li class=list-chat>${name}</li>`)
+        return $(`<li class=list-chat></li>`)
     }
 
     createUserList($container) {
         console.log('reateUserList', this.userContainer);
         const chatList = document.getElementsByClassName('list-chat');
         console.log("chat list befor: ", chatList)
-        console.log(this.createUser(this.userContainer[0].name));
+            // console.log(this.createUser(this.userContainer[0].name));
         this.userContainer.forEach(element => {
-            $(chatList).append(this.createUser(element.name));
+            $(chatList).append(this.createUser(element));
             //console.log("new user: ", this.createUser(element.name));
             console.log("chat list after: ", chatList);
         });
