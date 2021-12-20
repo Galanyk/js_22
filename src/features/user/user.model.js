@@ -9,8 +9,8 @@ export default class TodoListModel {
 
     getListItems() {
         return fetch(this.url)
-            .then((r) => r.json())
-            .then((r) => this.setListData(r))
+            // .then((r) => r.json())
+            //.then((r) => this.setListData(r))
     };
 
     setListData(data) {
@@ -58,6 +58,11 @@ export default class TodoListModel {
         };
         Object.assign(newUser, { id: this.todoListItems.length + 1, })
         this.todoListItems.push(newUser);
+        console.log("container: ", this.todoListItems.length);
     };
 
+
+    getContainer() {
+        return this.todoListItems;
+    }
 }

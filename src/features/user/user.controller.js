@@ -24,6 +24,10 @@ export default class TodoListController {
         this.todoListView.createUserCreateContainer(this.$container);
     };
 
+    getContainer() {
+        return this.todoListModel.getContainer();
+    }
+
     initViewRender() {
         this.todoListView.renderList(this.todoListModel.getTodoListItems());
         this.todoListView.appendTo(this.$container);

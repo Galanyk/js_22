@@ -1,22 +1,26 @@
 import $ from "jquery";
 
+
 export default class ChatView {
     static CONTAINER_CHAT = 'container-chat'
+    id = 0;
     constructor(options) {
         console.log("constructor chat view");
         this.options = options;
-        // this.$ListContainerEl =
-        //     this.initView()
-        //     .on('click', `.${TodoListView.BUTTON_CLASS.BUTTON_DEL}`, (e) => this.onDeleteClick(e))
-        //     .on('click', `.${TodoListView.BUTTON_CLASS.BUTTON_EDIT}`, (e) => this.onEditClick(e))
-        //     .on('click', `.${TodoListView.BUTTON_CLASS.BUTTON_SAVE_NEW_USER}`, (e) => this.onSaveNewUser(e))
-        //     .on('click', `.${TodoListView.BUTTON_CLASS.BUTTON_SAVE}`, (e) => this.onEditSave(e))
     };
 
-    // initView()
+    userContainer = null;
+    userList = null;
+
+    setUserContainer(container) {
+        console.log("chatView.setUserContainer", container);
+        this.userContainer = container;
+    }
     renderChat($contrainer) {
         console.log("chat render");
+        console.log('container_', this.contrainer_);
         const $chat = this.createChat();
+        this.userList = $chat;
         $contrainer.append($chat);
     };
 
@@ -24,8 +28,8 @@ export default class ChatView {
         console.log("Create chat");
         return $(`<div class="container-chat">
         <div class="container-users">
-            <ul>
-                <li>AAA</li>
+            <ul class="list-chat">
+                <li>John</li>
             </ul>
         </div>
         <div class="container-messages">
@@ -37,7 +41,26 @@ export default class ChatView {
             </div>
         </div>
     </div>`);
+
+
     };
+    createUser(name) {
+        console.log('createUser')
+        return $(`<li class=list-chat>${name}</li>`)
+    }
+
+    createUserList($container) {
+        console.log('reateUserList', this.userContainer);
+        const chatList = document.getElementsByClassName('list-chat');
+        console.log("chat list befor: ", chatList)
+        console.log(this.createUser(this.userContainer[0].name));
+        this.userContainer.forEach(element => {
+            $(chatList).append(this.createUser(element.name));
+            //console.log("new user: ", this.createUser(element.name));
+            console.log("chat list after: ", chatList);
+        });
+
+    }
 
 
 

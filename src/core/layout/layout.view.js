@@ -8,11 +8,11 @@ export default class LayoutView {
         $contrainer.append($layout);
     }
     createLayout() {
-        return $(`
-    <div class="layout-container">
-    <div class="header"></div>
-    <div id="main-container"></div>
-    </div>
-    `);
+        //     return $(`
+        // <div class="layout-container">
+        // <div class="header"></div>
+        // <div id="main-container"></div>
+        // </div>
+        // `);
     }
 }

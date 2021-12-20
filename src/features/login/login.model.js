@@ -1,9 +1,14 @@
 export default class LoginModel {
-    constructor() {
+    constructor() {}
+    isValidData = false;
 
-    }
-
-    login(userData) {
-        console.log('login model login')
+    login(data) {
+        console.log('login model login', data)
+        if (data === "123") {
+            this.isValidData = true;
+        } else {
+            this.isValidData = false;
+        }
+        return this.isValidData;
     }
 }

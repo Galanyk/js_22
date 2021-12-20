@@ -8,7 +8,7 @@ export default class MainController {
     constructor($el) {
         this.$root = $el;
         this.loginController = new login(this.$root, {
-            onLogin: () => this.userLogon(),
+            onLogin: (data) => this.userLogon(data),
         });
         this.layoutController = new layout(this.$root);
         this.chatController = new chat(this.$root);
@@ -20,11 +20,20 @@ export default class MainController {
         console.log("main controller user login");
         this.loginController.init();
     }
-    userLogon() {
+
+    userLogon(data) {
         console.log("main controller user logon");
-        this.clearRoot();
-        this.layoutController.init();
+        console.log("data: ", data);
+        if (data) {
+            this.chatController.setConteiner(this.userController.getContainer());
+            this.clearRoot();
+            this.layoutController.init();
+        } else {
+            alert("Invalid login or password!!!")
+        }
+
     }
+
 
     clearRoot() {
             this.$root.empty();

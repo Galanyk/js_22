@@ -17,4 +17,10 @@ export default class ChatController {
         console.log('co,,,', this.userC)
         this.userC.initViewRender();
     }
+
+    setConteiner(container) {
+        console.log("chatController.setContainer")
+        this.view.setUserContainer(container);
+        this.view.createUserList(this.$container);
+    }
 }

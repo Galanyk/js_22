@@ -7,20 +7,19 @@ export default class LoginController {
     constructor($el, options) {
         this.options = options;
         this.$container = $el;
-        this.view = new loginView({ login: () => this.onLogin() });
-        this.loginModel = new LoginModel
+        this.view = new loginView({ login: (data) => this.onLogin(data) });
+        this.model = new LoginModel();
         console.log("constructor Login controller");
     }
 
     init() {
         this.view.renderLoginForm(this.$container);
     }
-    onLogin() {
-        console.log("Login controller");
-        console.log("options: ", this.options);
-        this.options.onLogin();
-        this.loginModel.login("123")
 
+    onLogin(data) {
+        console.log("Login controller data: ", data);
+        //console.log(this.model.login("123"))
+        this.options.onLogin(this.model.login(data));
+        //his.options.onLogin();
     }
-
 }
