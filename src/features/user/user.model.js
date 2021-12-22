@@ -1,45 +1,45 @@
-import View from "./user.view";
+// import View from "./user.view";
 // import $ from "jquery";
 
-export default class TodoListModel {
-    todoListItems = [];
+export default class UserModel {
+    userItems = [];
     constructor(url) {
         this.url = url;
     };
 
     getListItems() {
         return fetch(this.url)
-            // .then((r) => r.json())
-            //.then((r) => this.setListData(r))
+            .then((r) => r.json())
+            .then((r) => this.setListData(r))
     };
 
     setListData(data) {
-        this.todoListItems = data;
+        this.userItems = data;
     };
 
     getTodoListItems() {
-        return this.todoListItems;
+        return this.userItems;
     };
 
     getDataUser(data) {
-        this.todoListItems = data;
+        this.userItems = data;
     };
 
     deleteItem(id) {
         return fetch(this.url + "/" + id, { method: 'DELETE' })
             .then((r) => {
-                this.todoListItems = this.todoListItems.filter((i) => i.id !== +id);
+                this.userItems = this.userItems.filter((i) => i.id !== +id);
                 return Promise.resolve(id);
             });
     };
 
     editItem(id) {
-        const element = this.todoListItems.find((e) => e.id === +id);
+        const element = this.userItems.find((e) => e.id === +id);
         return element;
     };
 
     editSave(user) {
-        const tempUser = this.todoListItems.find((e) => e.id === +user.id);
+        const tempUser = this.userItems.find((e) => e.id === +user.id);
         tempUser.name = user.name;
         tempUser.address.city = user.address;
         tempUser.phone = user.phone;
@@ -56,13 +56,13 @@ export default class TodoListModel {
             alert('Incorrect phone');
             return
         };
-        Object.assign(newUser, { id: this.todoListItems.length + 1, })
-        this.todoListItems.push(newUser);
-        console.log("container: ", this.todoListItems.length);
+        Object.assign(newUser, { id: this.userItems.length + 1, })
+        this.userItems.push(newUser);
+        console.log("container: ", this.userItems.length);
     };
 
 
     getContainer() {
-        return this.todoListItems;
+        return this.userItems;
     }
 }
