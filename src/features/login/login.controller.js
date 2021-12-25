@@ -9,7 +9,7 @@ export default class LoginController {
         this.$container = $el;
         this.view = new loginView({ login: (data) => this.onLogin(data) });
         this.model = new LoginModel();
-        console.log("constructor Login controller");
+        // console.log("constructor Login controller");
     }
 
     init() {
@@ -17,8 +17,7 @@ export default class LoginController {
     }
 
     onLogin(data) {
-        console.log("Login controller data: ", data);
-        //console.log(this.model.login("123"))
+        console.log("on login controller");
         this.options.onLogin(this.model.login(data));
         //his.options.onLogin();
     }

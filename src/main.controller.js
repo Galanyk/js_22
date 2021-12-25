@@ -10,35 +10,29 @@ export default class MainController {
         this.loginController = new login(this.$root, {
             onLogin: (data) => this.userLogon(data),
         });
-        this.layoutController = new layout(this.$root);
         this.chatController = new chat(this.$root);
         this.userController = new user(this.$root);
         this.useLogin();
     }
 
     useLogin() {
-        console.log("main controller user login");
+        console.log("main controller useLogin");
         this.loginController.init();
     }
 
     userLogon(data) {
-        console.log("main controller user logon");
-        console.log("data: ", data);
         if (data) {
-            this.chatController.setConteiner(this.userController.getContainer());
+            console.log("Log in");
             this.clearRoot();
-            this.layoutController.init();
+            this.chatController.setConteiner(this.userController.getContainer());
+            this.chatController.init();
         } else {
             alert("Invalid login or password!!!")
         }
 
     }
 
-
     clearRoot() {
-            this.$root.empty();
-        }
-        // useLayout() {
-        //     this.Controller();
-        // }
+        this.$root.empty();
+    }
 }

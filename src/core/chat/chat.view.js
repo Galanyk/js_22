@@ -3,33 +3,43 @@ import $ from "jquery";
 
 export default class ChatView {
     static CONTAINER_CHAT = 'container-chat'
-    id = 0;
+
     constructor(options) {
-        console.log("constructor chat view");
         this.options = options;
     };
 
-    userContainer = null;
-    userList = null;
+    userContainer = ['John', 'Smith'];
+    $userList = null;
 
     setUserContainer(container) {
-        console.log("chatView.setUserContainer", container);
         this.userContainer = container;
+        console.log("chat view setUserContainer userContainer: ", this.userContainer);
     }
-    renderChat($contrainer) {
-        console.log("chat render");
-        console.log('container_', this.contrainer_);
-        const $chat = this.createChat();
-        this.userList = $chat;
-        $contrainer.append($chat);
-    };
 
-    createChat(name) {
-        console.log("Create chat");
+    createUser(user) {
+        return `<li class="item">${user}</li>`
+    }
+
+
+    renderChat($contrainer) {
+        console.log("chat view renderChat", $contrainer);
+        console.log("render char -> create chat", this.createChat());
+        $contrainer.append(this.createChat());
+        this.createUserList();
+
+    };
+    createUserList() {
+        console.log("chatView createUserList userContainer: ", this.userContainer);
+        const chatList = document.getElementsByClassName('list');
+        this.userContainer.forEach(element => {
+            $(chatList).append(this.createUser(element.name));
+        });
+    }
+    createChat() {
+        console.log("chatView create chat");
         return $(`<div class="container-chat">
         <div class="container-users">
             <ul class="list">
-                <li class="item"></li>
             </ul>
         </div>
         <div class="container-messages">
@@ -41,38 +51,5 @@ export default class ChatView {
             </div>
         </div>
     </div>`);
-
-
     };
-    createUser(name) {
-        console.log('createUser', name)
-        return `<li class="item">${name}</li>`
-    }
-
-    // createUserList(userContainer) {
-    //     const listHtml = this.userContainer.forEach(item => this.createUser(item));
-    //     $('ul.list').html(listHtml)
-    //     console.log('mmmm', $('li.item').html(listHtml))
-    // };
-
-
-    createUserList($container) {
-        console.log('createUserList', this.userContainer);
-        const chatList = document.getElementsByClassName('list');
-        console.log("chat list befor: ", chatList)
-            // console.log(this.createUser(this.userContainer[0].name));
-        this.userContainer.forEach(element => {
-            $('li').appendTo('.list');
-            // $('li').appendTo(this.createUser(element))
-            // console.log("new user: ", this.createUser(element.name));
-            console.log("chat list after: ", chatList);
-        });
-
-    }
-
-
-
-
-
-
 }

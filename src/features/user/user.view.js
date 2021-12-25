@@ -17,9 +17,9 @@ export default class UserView {
     }
 
     static INPUT = 'input'
-    static LIST = 'list'
+    static LIST = 'list-user'
     static CONTAINER_INPUT = 'container_input'
-    static ITEM = 'item'
+    static ITEM = 'item-user'
     static ITEM_ADDRESS = 'item-address'
     static ITEM_PHONE = 'item-phone'
     static CONTAINER_USER = 'container_user'
@@ -125,7 +125,7 @@ export default class UserView {
             $(`#${UserView.ID.NEW_USER_NAME_ID}`).val($(UserView.INPUT).val());
             $(`#${UserView.ID.USER_NAME_ID}`).val('');
             this.isEnter = false;
-            console.log('onEnterClick view')
+            // console.log('onEnterClick view')
         };
     };
 

@@ -9,16 +9,14 @@ export default class LayoutController {
         this.$container = $el;
         this.view = new LayoutView();
         this.chatView = new ChatView();
-        // this.chatView.renderChat(this.$container);
-
+        //this.chatView.renderChat(this.$container);
         // init();
     }
 
     init() {
+        console.log("Layout controller init");
         this.view.renderLayout(this.$container);
-        // this.userC = new TodoListController($('#main-container'))
-        console.log('controller', this.userC)
-            // this.userC.initViewRender();
-        this.chatView.renderChat(this.$container);
+        this.chatView.renderChat(this.$container);;
+
     }
 }

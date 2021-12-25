@@ -1,12 +1,12 @@
 import $ from "jquery";
 export default class LoginView {
     constructor(options) {
-        console.log("constructor login view", options);
+        //  console.log("constructor login view", options);
         this.options = options;
     };
 
     renderLoginForm($contrainer) {
-        console.log("view", $contrainer);
+        // console.log("view", $contrainer);
         const $form = this.createForm();
         $contrainer.append($form);
 
@@ -23,7 +23,7 @@ export default class LoginView {
     };
 
     createForm() {
-        console.log("create form");
+        // console.log("create form");
         return $(
             `<div>
         <h1>Chat</h1>

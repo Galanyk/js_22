@@ -58,11 +58,12 @@ export default class UserModel {
         };
         Object.assign(newUser, { id: this.userItems.length + 1, })
         this.userItems.push(newUser);
-        console.log("container: ", this.userItems.length);
+        //console.log("container: ", this.userItems.length);
     };
 
 
     getContainer() {
+        console.log("user model getContainer", this.userItems);
         return this.userItems;
     }
 }

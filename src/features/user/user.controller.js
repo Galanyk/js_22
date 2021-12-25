@@ -10,7 +10,7 @@ export default class UserController {
     };
 
     constructor($container) {
-        console.log('user', $container)
+        //console.log('user', $container)
         this.$container = $container;
         this.userModel = new UserModel(UserController.API + UserController.ENVIRONMENT.USERS.getUsers);
 
@@ -25,6 +25,7 @@ export default class UserController {
     };
 
     getContainer() {
+        console.log("user controller get Container");
         return this.userModel.getContainer();
     }
 
@@ -41,7 +42,7 @@ export default class UserController {
     };
 
     editSave(user) {
-        console.log('controler: ', user);
+        //console.log('controler: ', user);
         this.userModel.editSave(user);
         this.userView.renderList(this.userModel.getTodoListItems());
     };
