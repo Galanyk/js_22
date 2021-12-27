@@ -125,7 +125,6 @@ export default class UserView {
             $(`#${UserView.ID.NEW_USER_NAME_ID}`).val($(UserView.INPUT).val());
             $(`#${UserView.ID.USER_NAME_ID}`).val('');
             this.isEnter = false;
-            // console.log('onEnterClick view')
         };
     };
 

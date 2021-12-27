@@ -8,44 +8,52 @@ export default class ChatView {
         this.options = options;
     };
 
-    userContainer = ['John', 'Smith'];
+    message = {
+        userId: null,
+        name: null,
+        text: null,
+        date: null,
+        isShown: null,
+        isEdited: null,
+        chatId: null,
+    }
+
+    id = 0;
     $userList = null;
-    message = null;
 
     setUserContainer(container) {
         this.userContainer = container;
-        //  console.log("chat view setUserContainer userContainer: ", this.userContainer);
     }
 
-    createUser(user) {
-        return `<li class="item">${user}</li>`
+    createUser(user, id) {
+        console.log('id,', id, user)
+        return `<li id="${id}" class="item-user-chat">${user}</li>`
     }
 
 
     renderChat($contrainer) {
-        // console.log("chat view renderChat", $contrainer);
-        // console.log("render char -> create chat", this.createChat());
         $contrainer.append(this.createChat())
-            .on('click', ".button-send-message", (e) => this.onSendMessage(e));
+            .on('click', ".button-send-message", () => this.onSendMessage())
+            .on('click', ".item-user-chat", (e) => this.onUserClick(e))
         this.createUserList();
     };
     createUserList() {
-        // console.log("chatView createUserList userContainer: ", this.userContainer);
         this.userContainer.forEach(element => {
-            $('.list').append(this.createUser(element.name));
+            $('.list').append(this.createUser(element.name, element.id));
         });
     }
     createChat() {
-        // console.log("chatView create chat");
         return $(`<div class="container-chat">
         <div class="container-users">
             <ul class="list">
             </ul>
         </div>
         <div class="container-messages">
-            <div class="user-messag"></div>
-            <div class="contact-messag">Sveta</div>
-            <div>
+            <div class="chat-messages">
+                <div class="user-messag"></div>
+                <div class="contact-messag"></div>
+            </div>
+            <div class="container-input">
                 <input type="text" class="input-message">
                 <button class="button-send-message">Send</button>
             </div>
@@ -53,16 +61,32 @@ export default class ChatView {
     </div>`);
     };
 
-    onSendMessage(e) {
-        console.log("Send message: ", this.getMessage());
-        $('.contact-messag').append(this.createMessage(this.getMessage()));
-        $('.user-messag').append(this.createMessage(this.getMessage()));
+    onSendMessage() {
+        if (this.message.name !== null && this.getMessage().text !== '') {
+            console.log('get messege: ', this.getMessage().text);
+            $('.contact-messag').append(this.createMessage(this.getMessage()));
+            $(".input-message").val('');
+        }
     }
 
     getMessage() {
-        return $(".input-message").val();
+        this.message.text = $(".input-message").val()
+        this.message.date = new Date().toLocaleTimeString();
+        return this.message;
     }
+
     createMessage(message) {
-        return `<li>${message}</li>`
+        return `<div class="container-message">
+                    <div class="sender-name">${message.name}</div>
+                    <div class="item-message">${message.text}</div>
+                    <div class="msg-date">${message.date}</div>
+                </div>`
+    }
+
+    onUserClick(e) {
+        console.log("user click: ", e.target.id);
+        this.message.name = this.userContainer.filter((element) => {
+            return element.id === +e.target.id
+        })[0].name
     }
 }

@@ -42,7 +42,6 @@ export default class UserController {
     };
 
     editSave(user) {
-        //console.log('controler: ', user);
         this.userModel.editSave(user);
         this.userView.renderList(this.userModel.getTodoListItems());
     };
