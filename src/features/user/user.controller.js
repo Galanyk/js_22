@@ -25,7 +25,7 @@ export default class UserController {
     };
 
     getContainer() {
-        console.log("user controller get Container");
+        // console.log("user controller get Container");
         return this.userModel.getContainer();
     }
 

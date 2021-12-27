@@ -16,7 +16,7 @@ export default class LayoutController {
     init() {
         console.log("Layout controller init");
         this.view.renderLayout(this.$container);
-        this.chatView.renderChat(this.$container);;
+        this.chatView.renderChat(this.$container);
 
     }
 }

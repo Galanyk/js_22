@@ -74,7 +74,7 @@ export default class UserView {
     };
 
     createUserCreateContainer($container) {
-        const el = $(`<div>Create new user</div><div class="${UserView.CONTAINER_INPUT}">
+        const el = $(`<div class="${UserView.CONTAINER_INPUT}"><div>Create new user</div>
             <input id="${UserView.ID.USER_NAME_ID}" class="${UserView.INPUT}" placeholder="Name">
             <button id="button-input" class="${UserView.BUTTON_CLASS.BUTTON_NEW_USER}">Enter</button></div>`)
             .on('click', `.${UserView.BUTTON_CLASS.BUTTON_NEW_USER}`, (e) => this.onEnterClick(e));

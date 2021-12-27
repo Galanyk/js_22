@@ -63,7 +63,7 @@ export default class UserModel {
 
 
     getContainer() {
-        console.log("user model getContainer", this.userItems);
+        // console.log("user model getContainer", this.userItems);
         return this.userItems;
     }
 }

@@ -17,7 +17,7 @@ export default class LoginController {
     }
 
     onLogin(data) {
-        console.log("on login controller");
+        //  console.log("on login controller");
         this.options.onLogin(this.model.login(data));
         //his.options.onLogin();
     }

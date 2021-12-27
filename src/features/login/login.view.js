@@ -18,7 +18,7 @@ export default class LoginView {
     };
 
     onClick = () => {
-        console.log("Login View");
+        //console.log("Login View");
         this.options.login("123");
     };
 
