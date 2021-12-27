@@ -27,7 +27,7 @@ export default class MainController {
             this.chatController.setConteiner(this.userController.getContainer());
             this.chatController.init();
         } else {
-            alert("Invalid login or password!!!")
+            alert("Invalid Name or login!!!")
         }
 
     }

@@ -18,8 +18,8 @@ export default class LoginView {
     };
 
     onClick = () => {
-        //console.log("Login View");
-        this.options.login("123");
+        // console.log("Login View", );
+        this.options.login($('.name').val(), $('.login').val());
     };
 
     createForm() {
@@ -27,8 +27,8 @@ export default class LoginView {
         return $(
             `<div>
         <h1>Chat</h1>
-        <input type="text" placeholder="enter login"/>
-        <input type="password" placeholder="enter password"/>
+        <input type="text" class="name" placeholder="enter login"/>
+        <input type="password" class="login" placeholder="enter password"/>
         <button id="login-btn"> login </button>
         </div>`
         );

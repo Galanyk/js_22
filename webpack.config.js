@@ -1,5 +1,6 @@
 const path = require("path");
 const htmlWebpack = require("html-webpack-plugin");
+
 module.exports = {
     entry: "./src/index.js",
     mode: "production",
@@ -19,10 +20,10 @@ module.exports = {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"],
             },
-            // {
-            //     test: /\.html$/i,
-            //     loader: "html-loader",
-            // },
+            {
+                test: /\.html$/i,
+                loader: "html-loader",
+            },
         ],
     },
 };
