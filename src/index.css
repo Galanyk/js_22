@@ -1,0 +1,8 @@
+#root {
+    display: flex;
+    /* background-color: lightgreen; */
+    flex-wrap: wrap;
+    width: 800px;
+    height: 100vh;
+    /* padding: 20px; */
+}

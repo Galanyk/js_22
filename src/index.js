@@ -1,7 +1,7 @@
 import $ from "jquery";
 import MainController from "./main.controller";
 import dist from "./index.html";
-import ("./some.css");
+import ("./index.css");
 
 
 const $container = $("#root");

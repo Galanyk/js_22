@@ -1,5 +1,6 @@
 import UserView from "./user.view";
 import UserModel from "./user.model";
+import ("./user.css");
 
 export default class UserController {
     static API = "https://jsonplaceholder.typicode.com";
@@ -30,7 +31,7 @@ export default class UserController {
     }
 
     initViewRender() {
-        this.userView.renderList(this.userModel.getTodoListItems());
+        // this.userView.renderList(this.userModel.getTodoListItems());
         this.userView.appendTo(this.$container);
     };
 

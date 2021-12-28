@@ -85,3 +85,9 @@
 .sender-name {
     color: green;
 }
+
+.text-msg {
+    color: red;
+    margin: 5px;
+    text-align: center;
+}

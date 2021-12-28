@@ -1,0 +1,10 @@
+#text-user {
+    color: mediumblue;
+    font-weight: bold;
+    margin-bottom: 60px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container_input {
+    margin-right: 50px;
+}

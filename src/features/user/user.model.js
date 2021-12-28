@@ -18,7 +18,7 @@ export default class UserModel {
     };
 
     getTodoListItems() {
-        return this.userItems;
+        return this.userItems[this.userItems.length - 1];
     };
 
     getDataUser(data) {

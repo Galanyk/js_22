@@ -24,6 +24,7 @@ export default class UserView {
     static ITEM_PHONE = 'item-phone'
     static CONTAINER_USER = 'container_user'
     static CONTAINER_USER_OPEN = 'container_user_open'
+    static TEXT_USER = 'text-user'
 
     editUser = null;
     id = 0;
@@ -46,8 +47,9 @@ export default class UserView {
         return $(`<ul class="${UserView.LIST}"></ul>`);
     };
 
-    renderList(list) {
-        const listHtml = list.map(item => this.createItemHtml(item)).join('');
+    renderList(newUser) {
+        //const listHtml = list.map(item => this.createItemHtml(item)).join('');
+        const listHtml = this.createItemHtml(newUser);
         this.$ListContainerEl.html(listHtml)
     };
 
@@ -74,7 +76,7 @@ export default class UserView {
     };
 
     createUserCreateContainer($container) {
-        const el = $(`<div class="${UserView.CONTAINER_INPUT}"><div>Create new user</div>
+        const el = $(`<div class="${UserView.CONTAINER_INPUT}"><h1 id="${UserView.TEXT_USER}">Create new user</h1>
             <input id="${UserView.ID.USER_NAME_ID}" class="${UserView.INPUT}" placeholder="Name">
             <button id="button-input" class="${UserView.BUTTON_CLASS.BUTTON_NEW_USER}">Enter</button></div>`)
             .on('click', `.${UserView.BUTTON_CLASS.BUTTON_NEW_USER}`, (e) => this.onEnterClick(e));
