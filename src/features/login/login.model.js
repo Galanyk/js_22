@@ -9,5 +9,5 @@ export default class LoginModel {
             this.isValidData = false;
         }
         return this.isValidData;
-    }
+    };
 }
